@@ -18,6 +18,7 @@ v = 1;
 UIprep(1);
 offPanel([1,2,3]);
 time_backup = 0;
+PCtime();
 
 while v ~= 0
 
@@ -31,6 +32,23 @@ if isdir(directorio)
         
     else
         imagen = imread(sprintf('%s\\%s',directorio,d(s).name));
+        
+        
+        
+        
+        imagenBW = Threshold(imagen);
+        imagenFil = Filtrador(imagenBW);
+        Ref = Referencia(imagenFil);
+        imagenLim = limpiador(imagenFil,Ref,600,800);
+        [horaF,minutoF] = angulo2(imagenLim,Ref);
+        hora = floor(horaF);
+        minuto = round(minutoF);
+        hold on;
+        %%plot(Ref(1),Ref(2),'b*');
+%         hold off;
+        fprintf('Son las %i : %i',hora,minuto);
+        
+        time_backup = panelUpdater([hora,minuto], time_backup);
             
     end
 
@@ -40,23 +58,6 @@ else
 	  
     return;
 end
-
-PCtime();
-
-imagenBW = Threshold(imagen);
-imagenFil = Filtrador(imagenBW);
-Ref = Referencia(imagenFil);
-imagenLim = limpiador(imagenFil,Ref,600,800);
-[horaF,minutoF] = angulo2(imagenLim,Ref);
-hora = floor(horaF);
-minuto = round(minutoF);
-hold on;
-%%plot(Ref(1),Ref(2),'b*');
-hold off;
-fprintf('Son las %i : %i',hora,minuto);
-
-time_backup = panelUpdater([hora,minuto], time_backup);
-
 
 end %Prompt de imágenes
 end
