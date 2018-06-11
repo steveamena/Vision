@@ -22,7 +22,6 @@ minuto = round(minutoF);
 hold on;
 plot(Ref(1),Ref(2),'b*');
 hold off;
-
 fprintf('Son las %i : %i',hora,minuto);
 end
 

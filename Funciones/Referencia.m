@@ -1,7 +1,6 @@
 function [Ref] = Referencia(imagen)
 
 % Se obtiene el punto de referencia
-
 % Salidas:
 %   Ref      = Referencia
 

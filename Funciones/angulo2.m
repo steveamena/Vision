@@ -45,9 +45,10 @@ function [hora, minutos] = angulo2(imagen,Ref)
         Valor_1=Valor;
     end
     horaria = (AnguloPos(1)+AnguloPos(2))/2;
-    horaria2 = (AnguloPos(3)+AnguloPos(4))/2;
-    if(minutera-5<horaria) && (horaria<minutera+5)
-        horaria = horaria2;
+    if(contador ~= 3)
+        if(minutera-5<horaria) && (horaria<minutera+5)
+            horaria = horaria2;
+        end      
     end
     minutos = minutera*60/360;
     hora = horaria*12/360;
