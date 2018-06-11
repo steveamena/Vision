@@ -55,7 +55,7 @@ if isdir(directorio)
 else
 	errorMessage = sprintf('ERROR: No existe el directorio "%s" en el fólder actual:\n%s\\...',directorio,pwd);
 	uiwait(msgbox(errorMessage,'Error de directorio','warn', CreateStruct));
-	  
+	v = 0;
     return;
 end
 
