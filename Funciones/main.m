@@ -42,7 +42,7 @@ if isdir(directorio)
         imagenLim = limpiador(imagenFil,Ref,600,800);
         [horaF,minutoF] = angulo2(imagenLim,Ref);
         hora = floor(horaF);
-        minuto = round(minutoF);
+        minuto = floor(minutoF);
         hold on;
         %%plot(Ref(1),Ref(2),'b*');
 %         hold off;
