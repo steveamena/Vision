@@ -6,14 +6,15 @@
 % Steve Mena Navarro
 %%
 
-function [Ref] = main()
+function [] = main()
 
 clc
-fprintf('PROYECTO FINAL: LECTURA DE UN RELOJ ANALÓGICO\n');
+fprintf('PROYECTO FINAL: LECTURA DE UN RELOJ ANALÓGICO\n\n');
 
 directorio = 'Clock_Images';
 d = dir(sprintf('%s\\*.BMP',directorio));
 v = 1;
+mediciones = 1;
 
 UIprep(1);
 offPanel([1,2,3]);
@@ -47,7 +48,13 @@ if isdir(directorio)
         hold on;
         %%plot(Ref(1),Ref(2),'b*');
 %         hold off;
-        fprintf('Son las %i : %i',hora,minuto);
+        fprintf('Medición #%i \n',mediciones);
+        mediciones = mediciones +1;
+        if (minuto>9)
+            fprintf('El reloj analógico marca las %i : %i\n\n',hora,minuto);
+        else
+            fprintf('El reloj analógico marca las %i : 0%i\n\n',hora,minuto);
+        end
         
         time_backup = panelUpdater([hora,minuto], time_backup);
             
