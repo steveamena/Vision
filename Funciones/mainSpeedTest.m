@@ -26,8 +26,19 @@ minuto = floor(minutoF);
 % hold on;
 %%plot(Ref(1),Ref(2),'b*');
 %         hold off;
-fprintf('Son las %i : %i',hora,minuto);
 
+hora = num2str(hora);
+minuto = num2str(minuto);
+if length(hora)==1
+    hora = ['0',hora];
+end
+
+if length(minuto)==1
+   minuto = ['0',minuto];
+end
+    
+fprintf('Son las %s:%s.\n',hora,minuto);
+% fprintf('Son las %i:%i.\n',hora,minuto);
 
 
 
