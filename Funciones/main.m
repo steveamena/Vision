@@ -3,7 +3,7 @@
 
 % Diego Aguilar Valverde
 % Diego Leiva Solera
-% Steve Mena Navararro
+% Steve Mena Navarro
 %%
 
 function [Ref] = main()
@@ -11,7 +11,38 @@ function [Ref] = main()
 clc
 fprintf('PROYECTO FINAL: LECTURA DE UN RELOJ ANALÓGICO\n');
 
-imagen = imread('Imagen00311.BMP');
+directorio = 'Clock_Images';
+d = dir(sprintf('%s\\*.BMP',directorio));
+v = 1;
+
+UIprep(1);
+offpanel([1,2,3]);
+time_backup = 0;
+
+while v ~= 0
+
+if isdir(directorio)
+    fn = {d.name};
+    [s,v] = listdlg('PromptString','Seleccione una imagen:',...
+                    'SelectionMode','single',...
+                    'ListString',fn);      
+    if v == 0;
+        msgbox('No seleccionó una imagen. El programa termina.','Aviso'); 
+        
+    else
+        imagen = imread(sprintf('%s\\%s',directorio,d(s).name));
+            
+    end
+
+else
+	errorMessage = sprintf('ERROR: No existe el directorio "%s" en el fólder actual:\n%s\\...',directorio,pwd);
+	uiwait(msgbox(errorMessage,'Error de directorio','warn', CreateStruct));
+	  
+    return;
+end
+
+PCtime();
+
 imagenBW = Threshold(imagen);
 imagenFil = Filtrador(imagenBW);
 Ref = Referencia(imagenFil);
@@ -23,6 +54,11 @@ hold on;
 plot(Ref(1),Ref(2),'b*');
 hold off;
 fprintf('Son las %i : %i',hora,minuto);
+
+time_backup = panelUpdater(hora, time_backup);
+
+
+end %Prompt de imágenes
 end
 
 

@@ -1,7 +1,7 @@
 function [time_backup] = panelUpdater(hora, backup)
 %PANELUPDATER Permite plotear nuevo tiempo y guardar el anterior
 % 
-% Uso: panelUpdater(hora, backup)
+% Uso: time_backup = panelUpdater(hora, backup)
 % 
 % Argumento:
 %       hora        - Hora en un vector fila [hora, minutos]

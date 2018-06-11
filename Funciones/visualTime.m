@@ -8,6 +8,9 @@ function [time_backup] = visualTime(hora, timer, backup)
 %       timer       - Tablero sobre el cual colocar el número (1-3)
 %       backup      - Indicador de si ya se hizo una medición anterior
 % 
+% Salida:
+%       time_backup - Vector que contiene la info para un nuevo tiempo
+% 
 % V1.1
 % Diego Leiva
 
