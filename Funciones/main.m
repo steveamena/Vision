@@ -16,7 +16,7 @@ d = dir(sprintf('%s\\*.BMP',directorio));
 v = 1;
 
 UIprep(1);
-offpanel([1,2,3]);
+offPanel([1,2,3]);
 time_backup = 0;
 
 while v ~= 0
@@ -55,7 +55,7 @@ plot(Ref(1),Ref(2),'b*');
 hold off;
 fprintf('Son las %i : %i',hora,minuto);
 
-time_backup = panelUpdater(hora, time_backup);
+time_backup = panelUpdater([hora,minuto], time_backup);
 
 
 end %Prompt de imágenes
