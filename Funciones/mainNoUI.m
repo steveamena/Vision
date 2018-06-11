@@ -38,7 +38,8 @@ if isdir(directorio)
         
         imagenBW = Threshold(imagen);
         imagenFil = Filtrador(imagenBW);
-        Ref = Referencia(imagenFil);
+        imagenFil2 = limpiador2(imagenFil,[400 240],600,800);
+        Ref = Referencia(imagenFil2);
         imagenLim = limpiador(imagenFil,Ref,600,800);
         [horaF,minutoF] = angulo2(imagenLim,Ref);
         hora = floor(horaF);
