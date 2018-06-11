@@ -11,12 +11,18 @@ function [Ref] = main()
 clc
 fprintf('PROYECTO FINAL: LECTURA DE UN RELOJ ANALÓGICO\n');
 
-imagen = imread('Imagen00006.BMP');
-
+imagen = imread('Imagen00200.BMP');
 imagenBW = Threshold(imagen);
 imagenFil = Filtrador(imagenBW);
 Ref = Referencia(imagenFil);
-
+imagenLim = limpiador(imagenFil,Ref,600,800);
+[hora,minuto] = angulo2(imagenLim,Ref);
+disp(floor(hora));
+disp(round(minuto));
+imshow(imagen);
+hold on;
+plot(Ref(1),Ref(2),'b*');
+hold off;
 end
 
 

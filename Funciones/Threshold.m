@@ -10,7 +10,7 @@ function [imagenBW2] = Threshold(imagen)
 
 %Diego Aguilar
 
-imagenBW = im2bw(imagen, 70/255);
+imagenBW = im2bw(imagen, 50/255);
 imagenBWnot = not(imagenBW);
 imagenBW2 = imfill(imagenBWnot,4,'holes');
 end
