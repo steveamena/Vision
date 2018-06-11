@@ -8,7 +8,6 @@ function [] = PCtime()
 % Diego Leiva
 
 c = clock;
-pos = 0;
 
 if c(4)>11
     UIprep(3); %fondo con PM encendido
@@ -28,7 +27,7 @@ dayPlot(num2str(c(3)),2);
 yearPlot(num2str(c(1)),2);
 
 %Plot HORA
-hourPlot(num2str(c(4)),2,0);
+hourPlot(num2str(c(4)),2);
 
 %Plot MIN
 minPlot(num2str(c(5)),2);
