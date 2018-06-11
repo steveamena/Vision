@@ -10,7 +10,7 @@
 % Steve Mena Navarro
 %%
 
-function [Ref] = main()
+function [Ref] = mainNoUI()
 
 clc
 fprintf('PROYECTO FINAL: LECTURA DE UN RELOJ ANALÓGICO\n');

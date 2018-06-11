@@ -10,7 +10,7 @@
 % Steve Mena Navarro
 %%
 
-function [Ref] = main()
+function [Ref] = mainSpeedTest(imagen)
 
 clc
 
