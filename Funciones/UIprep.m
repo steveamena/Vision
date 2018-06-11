@@ -1,23 +1,39 @@
-function [] = UIprep()
+function [] = UIprep(cond)
 %UIprep Prepara la interfaz gráfica para el proyecto
 % 
 % Genera las figuras necesarias para desplegar el reloj digital
-% --> No requiere argumentos de entrada 
 % 
-% V1.0 
+% Uso: UIprep(cond)
+% 
+% Argumento:
+%       cond     - Indica si es condición inicial o panel de AM o PM
+% 
+% V1.1 
 % Diego Leiva
+directorio = 'Clock_UI';
 
-d = dir('Clock_UI\*blank.png');
-directorio = 'Clock_UI\';
-CreateStruct.Interpreter = 'none';
-CreateStruct.WindowStyle = 'modal';
+switch cond
+    case 1 %timer apagado
+        d = dir(sprintf('%s\\*blank.png',directorio));
+    case 2 %timer AM
+        d = dir(sprintf('%s\\*blank_AM.png',directorio));
+    case 3 %timer PM
+        d = dir(sprintf('%s\\*blank_PM.png',directorio));
+    otherwise
+        CreateStruct.Interpreter = 'none';
+        CreateStruct.WindowStyle = 'modal';
+        
+        errorMessage = sprintf('ERROR: No existe el tablero indicado');
+        uiwait(msgbox(errorMessage,'Error de tablero','warn', CreateStruct));
+end
+
 
 if isdir(directorio)
     close all;
     ClockFigure = figure('Name', 'Reloj Digital');
     set(ClockFigure, 'MenuBar', 'none');
     set(ClockFigure, 'ToolBar', 'none');
-    blankClock = imread([directorio,d.name]);
+    blankClock = imread(sprintf('%s\\%s',directorio,d.name));
     imshow(blankClock);
     hold on;
   
