@@ -1,4 +1,4 @@
-function [ImOut] = limpiador(Imagen,Puntos,filas,columnas)
+function [ImOut] = limpiador2(Imagen,Puntos,filas,columnas)
     %%Funcion que rellena con negro los puntos no necesarios
     
     %% @2018 Steve Mena Navarro
@@ -12,11 +12,11 @@ function [ImOut] = limpiador(Imagen,Puntos,filas,columnas)
     %% Calcula los offset de los puntos
         %C es el offset que quita el centro de la imagen
         %El cx es igual al cy porque el centro es un punto
-    cx = 19;
-    cy = 17;
+    cx = 0;
+    cy = 0;
         %D es el offset que quita el borde externo de la imagen
-    dx = 143;
-    dy = 143;
+    dx = 50;
+    dy = 200;
     for i=1:filas
         py = abs(i-y);
         for j=1:columnas
@@ -26,5 +26,4 @@ function [ImOut] = limpiador(Imagen,Puntos,filas,columnas)
             end
         end
     end
-    
 end

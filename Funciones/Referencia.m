@@ -10,7 +10,8 @@ function [Ref] = Referencia(imagen)
 %   Imagen       = Imagen filtrada
 
 %Diego Aguilar
-stats = regionprops('table',imagen,'Area','Centroid');
+L = bwlabel(imagen);
+stats = regionprops('table',L,'Area','Centroid');
 %Convierte a matriz
 S = table2array(stats);
 Region = [];
@@ -18,7 +19,7 @@ center = [];
 
 % Filtra las regiones con areas muy grandes
 for i=1:length(S(:,1))
-    if (S(i,1) < 200) && (S(i,1)>5);
+    if (S(i,1) < 200) && (S(i,1)>9);
         Region = [S(i,:);Region];
     end
 end

@@ -12,20 +12,25 @@
 
 function [Ref] = mainSpeedTest(imagen)
 
-clc
+
 
 %HAY QUE CARGAR UNA IMAGEN AL WORKSPACE ANTES DE HACER LA PRUEBA CON TIEMPO
 
 imagenBW = Threshold(imagen);
 imagenFil = Filtrador(imagenBW);
-Ref = Referencia(imagenFil);
+imagenFil2 = limpiador2(imagenFil,[400 240],600,800);
+Ref = Referencia(imagenFil2);
 imagenLim = limpiador(imagenFil,Ref,600,800);
 [horaF,minutoF] = angulo2(imagenLim,Ref);
+imshow(imagen);
+fprintf('Son las %s:%s.\n',num2str(horaF),num2str(minutoF));
+
 hora = floor(horaF);
 minuto = floor(minutoF);
-% hold on;
-%%plot(Ref(1),Ref(2),'b*');
-%         hold off;
+
+hold on;
+plot(Ref(1),Ref(2),'b*');
+hold off;
 
 hora = num2str(hora);
 minuto = num2str(minuto);

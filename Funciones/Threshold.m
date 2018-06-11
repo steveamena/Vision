@@ -10,6 +10,7 @@ function [imagenBW2] = Threshold(imagen)
 
 %Diego Aguilar
 level = graythresh(imagen);
+% level = 0.2;
 imagenBW = im2bw(imagen, level);
 imagenBWnot = not(imagenBW);
 imagenBW2 = imfill(imagenBWnot,4,'holes');
