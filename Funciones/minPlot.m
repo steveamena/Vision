@@ -1,5 +1,5 @@
 function [] = minPlot(numString, timer)
-%dayPlot Plotea 2 números en la parte de año de cualquier tablero
+%MINPLOT Plotea 2 números en la parte de año de cualquier tablero
 % 
 % Uso: minPlot(numString, timer)
 % 
