@@ -9,8 +9,8 @@ function [imagenBW2] = Threshold(imagen)
 %   imagen       =   imagenes campturadas
 
 %Diego Aguilar
-
-imagenBW = im2bw(imagen, 40/255);
+level = graythresh(imagen);
+imagenBW = im2bw(imagen, level);
 imagenBWnot = not(imagenBW);
 imagenBW2 = imfill(imagenBWnot,4,'holes');
 end
