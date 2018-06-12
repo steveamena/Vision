@@ -11,6 +11,7 @@ function [] = main()
 clc
 fprintf('PROYECTO FINAL: LECTURA DE UN RELOJ ANALÓGICO\n\n');
 
+%%Selección de la imagen
 directorio = 'Clock_Images';
 d = dir(sprintf('%s\\*.BMP',directorio));
 v = 1;
@@ -34,15 +35,12 @@ if isdir(directorio)
     else
         imagen = imread(sprintf('%s\\%s',directorio,d(s).name));
         
-        
-        
-        
+        %%Analisis de la imagen   
         imagenBW = Threshold(imagen);
         imagenFil = Filtrador(imagenBW);
         imagenFil2 = limpiador2(imagenFil,[400 240],600,800);
         Ref = Referencia(imagenFil2);
-        imagenLim = limpiador(imagenFil,Ref,600,800);
-        [horaF,minutoF] = angulo2(imagenLim,Ref);
+        [horaF,minutoF] = angulo2(imagenFil2,Ref);
         hora = floor(horaF);
         minuto = floor(minutoF);
         hold on;

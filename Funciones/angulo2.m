@@ -1,4 +1,15 @@
 function [hora, minutos] = angulo2(imagen,Ref)
+
+% Objetivo: obtiene los minutos y horas de la imagen
+
+% Salidas:
+%   hora 
+%   minutos
+
+% Entradas:
+%   imagen      =  imagen filtrada
+%   Ref         =  centro del reloj
+
     %%Genera la matriz de angulos, tomando la vertical como el cero
     t= (0:1:359);
     Theta = t*pi/180;
