@@ -34,7 +34,8 @@ if isdir(directorio)
         
     else
         imagen = imread(sprintf('%s\\%s',directorio,d(s).name));
-        
+        subplottight(1,2,2);
+        imshow(imagen);
         %%Analisis de la imagen   
         imagenBW = Threshold(imagen);
         imagenFil = Filtrador(imagenBW);
@@ -44,8 +45,8 @@ if isdir(directorio)
         hora = floor(horaF);
         minuto = floor(minutoF);
         hold on;
-        %%plot(Ref(1),Ref(2),'b*');
-%         hold off;
+        %plot(Ref(1),Ref(2),'b*');
+        %hold off;
         fprintf('Medición #%i \n',mediciones);
         mediciones = mediciones +1;
         if (minuto>9)

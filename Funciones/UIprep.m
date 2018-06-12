@@ -30,11 +30,14 @@ end
 
 if isdir(directorio)
     close all;
-    ClockFigure = figure('Name', 'Reloj Digital');
+    ClockFigure = figure('Name', 'Reloj Digital', 'Position', [100 100 1000 500]);
     set(ClockFigure, 'MenuBar', 'none');
     set(ClockFigure, 'ToolBar', 'none');
+    set(gcf,'color','w');
     blankClock = imread(sprintf('%s\\%s',directorio,d.name));
+    subplottight(1,2,1);
     imshow(blankClock);
+    
     hold on;
   
 else

@@ -16,7 +16,7 @@ function [time_backup] = visualTime(hora, timer, backup)
 
 c = clock;
 time_backup = [c(1),c(2),c(3),hora(1),hora(2)];
-
+subplottight(1,2,1);
 if backup ~= 0
     c(1) = backup(1);
     c(2) = backup(2);
