@@ -9,6 +9,8 @@ function [imagenBW2] = Threshold(imagen)
 %   imagen       =   imagenes campturadas
 
 %Diego Aguilar
+
+% Se realiza una binarización automática mediante el algoritmo Otsu
 level = graythresh(imagen);
 % level = 0.2;
 imagenBW = im2bw(imagen, level);
